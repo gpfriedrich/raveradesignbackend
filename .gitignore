@@ -1,0 +1,37 @@
+# Configurações locais e segredos
+.env
+.env.*
+!.env.example
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+
+# Python e empacotamento
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Caches, cobertura e arquivos temporários
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+tmp/
+temp/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
