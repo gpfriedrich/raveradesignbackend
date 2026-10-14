@@ -24,10 +24,14 @@ Execute os comandos na raiz deste backend.
 No Windows, com PowerShell:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -e .
-Copy-Item .env.example .env
+git clone <url-do-repositorio> # Baixa o código do repositório
+cd raveradesignbackend # Entra na pasta do projeto
+python -m venv .venv # Cria o ambiente virtual
+.\.venv\Scripts\Activate.ps1 # Ativa o ambiente virtual
+pip install --upgrade pip # Atualiza o instalador de pacotes
+pip install -r requirements.txt # Instala as dependências do projeto
+pip install -e . # Instala o projeto em modo editável
+Copy-Item .env.example .env # Cria o arquivo de configuração local
 ```
 
 Esses comandos usam o Python do ambiente virtual diretamente e não exigem
@@ -38,10 +42,14 @@ Copie `.env.example` somente se ainda não houver um `.env` local.
 No Linux ou macOS:
 
 ```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install --upgrade pip
-.venv/bin/python -m pip install -e .
-cp -n .env.example .env
+git clone <url-do-repositorio> # Baixa o código do repositório
+cd raveradesignbackend # Entra na pasta do projeto
+python3 -m venv .venv # Cria o ambiente virtual
+source .venv/bin/activate # Ativa o ambiente virtual
+pip install --upgrade pip # Atualiza o instalador de pacotes
+pip install -r requirements.txt # Instala as dependências do projeto
+# pip install -e . # Opcional: Instala o projeto em modo editável
+cp -n .env.example .env # Cria o arquivo de configuração local
 ```
 
 ## Configuração
@@ -75,13 +83,17 @@ pois elas são carregadas e armazenadas em memória durante a execução.
 No Windows:
 
 ```powershell
-.\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+# Ative o ambiente virtual primeiro
+.\.venv\Scripts\Activate.ps1 
+uvicorn app.main:app --reload # Inicia o servidor com auto-reload para desenvolvimento
 ```
 
 No Linux ou macOS:
 
 ```bash
-.venv/bin/python -m uvicorn app.main:app --reload
+# Ative o ambiente virtual primeiro
+source .venv/bin/activate
+uvicorn app.main:app --reload # Inicia o servidor com auto-reload para desenvolvimento
 ```
 
 O servidor inicia em `http://127.0.0.1:8000`. A opção `--reload` é destinada ao
